@@ -1,0 +1,1 @@
+// scope and scope chain
