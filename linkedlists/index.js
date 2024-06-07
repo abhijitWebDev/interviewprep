@@ -81,3 +81,71 @@ LinkedList.prototype.deleteLastNode = function() {
     secondLast.next = null;
 };
 
+LinkedList.prototype.deleteByKey = function(key) {
+    // if the list is empty 
+    if(!this.head) {
+        console.log("List is empty");
+        return;
+    }
+
+    //  Data found at the head
+    if(this.head.data===key) {
+        this.head = this.head.next;
+        return;
+    }
+
+    let current = this.head;
+    while(current.next !== null) {
+        current.next.data === key;
+        if(current.next.data === key) {
+            current.next = current.next.next;
+            return;
+        }
+        current = current.next;
+
+    }
+    console.log("No node found with the key :", key);
+}
+
+// search operation in linkedlist
+LinkedList.prototype.search = function(key) {
+    let current = this.head;
+
+    while(current) {
+        if(current.data === key) {
+            return true;
+
+        }
+    }
+    return false;
+}
+
+// traversal of linkedlist
+LinkedList.prototype.traverse = function() {
+    let current = this.head;
+    let listValues = [];
+
+    while(current) {
+        listValues.push(current.data); // push the data to the list
+        current = current.next; // move to next node
+    }
+    console.log(listValues.join(
+        " ->"
+    ));
+}
+
+// reverse the linkedlist
+LinkedList.prototype.reverse = function() {
+    let current = this.head;
+    let prev = null;
+    let next = null;
+
+    while(current) {
+        console.log(current.data);
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+    }
+    this.head = prev;
+}
