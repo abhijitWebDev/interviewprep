@@ -149,3 +149,26 @@ LinkedList.prototype.reverse = function() {
     }
     this.head = prev;
 }
+
+
+// Example usage
+const list = new LinkedList();
+list.traverse();
+list.insertAtBegining(20);
+list.traverse(); // Output: 20
+list.insertAtEnd(30);
+list.traverse(); // Output: 20 -> 30
+
+// Find the node after which you want to insert the new node
+let node = list.head.next; // This is the node with data 20
+list.insertAfter(node, 35);
+list.traverse(); // Output: 20 -> 35 -> 30
+
+// Insert after the node with data 35
+node = node.next; // This is the node with data 25
+list.insertAfter(node, 27);
+list.traverse(); // Output: 20 -> 25 -> 27 -> 30
+list.deleteByKey(30);
+list.traverse();
+list.reverse();
+list.traverse();
