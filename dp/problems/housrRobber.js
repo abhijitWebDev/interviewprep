@@ -1,5 +1,6 @@
 function nonAdjecentValues(nums, i=0) {
     let memo = {};
+    console.log(memo);
     if(i in memo) return memo[i]
 
     // out of bounds check
