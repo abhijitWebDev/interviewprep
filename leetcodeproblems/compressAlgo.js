@@ -25,3 +25,4 @@ var compress = function(chars) {
     return index;
     
 };
+console.log(compress('a','b','c','c','1','2'))
