@@ -3,6 +3,7 @@
 function fibonacci(value) {
     let n0 = 0;
     let n1 = 1;
+    
     let temp;
 
     for (let i = 0; i < value; i++) {
