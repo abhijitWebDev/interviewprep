@@ -38,24 +38,34 @@ At most 104 calls will be made to next.
 */
 
 
-var StockSpanner = function() {
-    this.stack=[];
-      
-  };
+class StockSpanner {
+    constructor() {
+        this.stack = [];
+
+    }
+    /**
+       * @param {number} price
+       * @return {number}
+       */
+/**
+ * Calculates the span of stock prices.
+ * The span of the stock's price today is defined as the maximum number of consecutive days 
+ * (starting from today and going backwards) for which the price of the stock was less than 
+ * or equal to today's price.
+ *
+ * @param {number} price - The current price of the stock.
+ * @returns {number} The span of the stock price.
+ */
+next(price) {
+    let span = 1;
+    while (this.stack.length > 0 && this.stack[this.stack.length - 1][0] <= price) {
+        span += this.stack.pop()[1];
+    }
+    this.stack.push([price, span]);
+    return span;
+}
+
   
-  /** 
-   * @param {number} price
-   * @return {number}
-   */
-  StockSpanner.prototype.next = function(price) {
-      let span = 1;
-          while (this.stack.length > 0 && this.stack[this.stack.length - 1][0] <= price) {
-              span += this.stack.pop()[1];
-          }
-          this.stack.push([price, span]);
-          return span;
-      
-  };
   
   /** 
    * Your StockSpanner object will be instantiated and called as such:
