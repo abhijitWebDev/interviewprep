@@ -1,9 +1,9 @@
 let typedTextSpan = document.querySelector('.typed-text');
 const cursor = document.querySelector('.cursor');
 
-const words = ['Love', 'Jhakaas', 'mast', 'dhinchak', 'Weird'];
-const typingDelay = 200;
-const erasingDelay = 200;
+const words = ['Web developer', 'Java developer', 'Python developer'];
+const typingDelay = 100;
+const erasingDelay = 100;
 const newLetterDelay = 800;
 
 let index = 0;
