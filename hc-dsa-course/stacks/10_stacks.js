@@ -39,6 +39,9 @@ class Stack{
          }
         return str;
     }
+    filter() {
+        this.stack = this.stack.filter(e => e % 2 === 0);
+    }
 }
 
 // usage example
@@ -48,6 +51,8 @@ myStack.push(4)
 myStack.push(2)
 
 myStack.push(3)
+
+// console.log(myStack.filter())
 console.log(myStack.printStack());
 
 

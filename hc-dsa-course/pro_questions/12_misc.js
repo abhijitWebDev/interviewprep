@@ -11,7 +11,7 @@ async function exec() {
     myPromise.then((response) => console.log('444',response));
     const response = await fetch("https://api.freeapi.app/api/v1/public/randomjokes");
     const data = await response.json();
-    console.log('777',data.data[0]);
+    console.log('777',data.data.data[0]);
     setTimeout(() => { console.log("888 , Await After Timeout"); }, 0);
 }
    

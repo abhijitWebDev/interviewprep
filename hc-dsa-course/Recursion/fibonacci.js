@@ -18,6 +18,8 @@ function fibonacci(value) {
 
 }
 
+
+
 console.log(fibonacci(6))
 
 // recursive approach
@@ -29,3 +31,23 @@ function recursiveFib(value) {
 }
 
 console.log(recursiveFib(6));
+
+// target sum 
+function closestFibonacciSumTarget(targetSum) {
+    let n0=0;
+    let n1=1;
+    let sum = n0 + n1;
+    let temp;
+
+    while(sum + n1 <= targetSum) {
+        temp = n0 + n1;
+        n0 = n1;
+        n1 = temp;
+        sum += n1;
+    }
+    return n1;
+}
+
+console.log(closestFibonacciSumTarget(20));
+
+
