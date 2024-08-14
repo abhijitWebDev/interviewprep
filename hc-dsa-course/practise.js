@@ -219,19 +219,6 @@ console.log(`Output: ${words}`);
 // console.log(swapTwoNos(10, 20));
 
 
-function isPallindrome(num) {
-  const numStr = num.toString();
-
-  const reversedNumStr = numStr.split(' ').reverse();
-
-  return numStr === reversedNumStr;
-  
-
-}
-
-console.log(isPallindrome(121));
-
-
 // reverse string
 
 // first way
@@ -271,29 +258,110 @@ console.log(result);
 // reverse a number in javascript
 
 function reverseNum(num) {
-  // let rev = 0;
+  let rev = 0;
 
-  // while(num>0) {
-  //   rev = rev*10 + num%10;
-  //   num = Math.floor(num/10);
-  // }
-  // return rev;
+  while(num>0) {
+    rev = rev*10 + num%10;
+    num = Math.floor(num/10);
+  }
+  return rev;
 
   // converting it to string and reverse
-  let rev='';
+  // let rev='';
 
-  const data = num.toString();
+  // const data = num.toString();
 
-  let length = data.length;
-  for(let i=length-1;i>=0;i--) {
-    rev += data.charAt(i);
+  // let length = data.length;
+  // for(let i=length-1;i>=0;i--) {
+  //   rev += data.charAt(i);
     
-  }
-  return Number(rev);
+  // }
+  // return Number(rev);
 
 
 
 
 }
 
-console.log(reverseNum(1234));
+var reverse = function(x) {
+  const isNegative = x < 0;
+  const reversed = parseInt(Math.abs(x).toString().split('').reverse().join('')) * (isNegative ? -1 : 1);
+  
+  if (reversed < Math.pow(-2, 31) || reversed > Math.pow(2, 31) - 1) {
+      return 0;
+  } else {
+      return reversed;
+  }
+};
+
+
+console.log(reverseNum(1534236469));
+console.log(reverse(1534236469));
+
+function isPallindrome(val) {
+  let reverse;
+
+  if(typeof val === "string") {
+    reverse = reverseStr(val);
+  } else {
+    reverse = reverseNum(val);
+  }
+  return val === reverse ? true : false;
+
+
+}
+
+
+
+console.log(isPallindrome('323'));
+
+
+
+// Binary search in js
+
+// function binarySearch(arr, i, j, x) {
+//   while(i<j){
+//     mid = Math.floor(i + (j-i)/2)
+
+//     // checking if the mid = x
+//     if(arr[mid] === x) {
+//       return mid;
+//     } else if(arr[mid] < x){
+//       using recursion
+//       return binarySearch(arr, mid+1, j, x)
+//     } else {
+//       using recursion
+//       return binarySearch(arr, i, j-1, x)
+//     }
+   
+//   }
+//   return -1 //element not found
+// }
+
+function binarySearch(arr, i, j, x) {
+  while(i<j){
+    mid = Math.floor(i + (j-i)/2)
+
+    // checking if the mid = x
+    if(arr[mid] === x) {
+      return mid;
+    } else if(arr[mid] < x){
+      i = mid+1
+    } else {
+      j = mid-1
+    }
+   
+  }
+  return -1 //element not found
+}
+
+
+
+// Driver code 
+let arr = [1, 3, 4, 6, 7, 10, 20, 40, 50, 60]
+let x = 4
+let i = 0
+let j = arr.length-1
+// function call
+const resultSearch = binarySearch(arr, i, j, x)
+console.log("Searching element present is", resultSearch)

@@ -13,31 +13,33 @@ class Node {
 
 class LinkedList {
     constructor() {
-        this.head=null;
-
+        this.head = null;
     }
 }
+
 
 // insertion of data in linkedlist at the begining
 /* Take data, convert it to node, add this data to the head */
 
-LinkedList.prototype.insertAtBegining = function(data) {
+LinkedList.prototype.insertAtBegining = function (data) {
     const newNode = new Node(data);
     this.head = newNode;
+
 }
 
 // Insertion at the end 
 
 LinkedList.prototype.insertAtEnd = function(data) {
     const newNode = new Node(data);
+
     if(!this.head) {
         this.head = newNode;
         return;
     }
-    let last = this.head
-    // last.next == null -> true then assign last.next=newNode;
+    // if its not the case, ie if this.head is not null then 
+    let last = this.head;
     while(last.next) {
-        last = last.next;
+        last = last.next 
     }
     last.next = newNode;
 }
@@ -45,14 +47,12 @@ LinkedList.prototype.insertAtEnd = function(data) {
 // insertion of data at any given node in linkedlist
 LinkedList.prototype.insertAfter = function(prevNode, data) {
     if(!prevNode) {
-        console.log("The given prev node cannot be null");
-        return;
+        console.log('The previous node cannot be empty');
+        return
     }
-
-    const newNode = new Node(data, prevNode.next) 
-        prevNode.next = newNode;
-    
-
+    const newNode = new Node(data, prevNode.next);
+    // assigning the prevNode.next to the new node
+    prevNode.next = newNode;
 }
 
 // Delete first node operation in linkedlist.
