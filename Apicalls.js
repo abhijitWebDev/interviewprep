@@ -1,3 +1,13 @@
+/*
+To implement createGetAPIWithMerging, 
+you need to create a higher-order function that wraps around the getAPI function. 
+This wrapper function should keep track of ongoing API calls and their parameters. 
+If a call with the same parameters is already in progress, 
+it should return the same promise instead of making a new API call.
+*/
+
+
+
 const createGetAPIWithMerging = (getAPI, timeout = 5000) => {
     const ongoingCalls = new Map();
   
