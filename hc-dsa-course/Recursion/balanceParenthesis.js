@@ -64,3 +64,31 @@ console.log('from recursion', balancePar(arrayOne, startIndex=0,currentIndex=0))
 console.log('from recursion', balancePar(arrayThree, startIndex=0,currentIndex=0));
 
 
+function removeDuplicates(nums) {
+    if(nums.length === 0) return 0;
+
+    // sort the array
+    nums.sort();
+
+    let i = 0;
+
+    for(let j = 1; j < nums.length;j++) {
+        if(nums[j] !== nums[i]) {
+            i++;
+            nums[i] = nums[j];
+        }
+
+    }
+
+    console.log(i + 1);
+    return i+1;
+};
+
+const arr = ['a', 'b', 'c', 'a', 'b', 'd']
+
+console.log(removeDuplicates(arr));
+const uniqueChar = removeDuplicates(arr);
+
+console.log(`Array after removing duplicates: ${arr.slice(0, uniqueChar)}`);
+
+
